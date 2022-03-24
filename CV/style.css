@@ -1,0 +1,374 @@
+@import url('https://fonts.googleapis.com/css2?family=Oleo+Script:wght@700&family=Quicksand:wght@300;500&display=swap');
+
+/* ------------------- */
+
+
+/* Custom properties   */
+
+
+/* ------------------- */
+
+ :root {
+    /* colors */
+    --black-clrs: 0, 100%, 0%;
+    --white-clrs: 0, 0%, 97%;
+    /* font-sizes */
+    --fs-900: 9.375rem;
+    --fs-800: 6.25rem;
+    --fs-700: 3.5rem;
+    --fs-600: 2rem;
+    --fs-500: 1.2rem;
+    --fs-400: 1.125rem;
+    --fs-300: 1rem;
+    --fs-200: 0.875rem;
+    /* font-families */
+    --font: 'Quicksand', sans-serif;
+}
+
+
+/* ------------------- */
+
+
+/* Reset               */
+
+
+/* ------------------- */
+
+
+/* https://piccalil.li/blog/a-modern-css-reset/ */
+
+
+/* Box sizing */
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+
+/* Reset margins */
+
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+p,
+figure,
+picture,
+li,
+ul {
+    margin: 0;
+    padding: 0;
+}
+
+
+/* set up the body */
+
+body,
+html {
+    line-height: 1.5;
+    min-height: 100vh;
+    font-family: var(--font);
+    height: 100%;
+    position: relative;
+    overflow-x: hidden;
+}
+
+li {
+    list-style: none;
+}
+
+
+/* Reuse Component*/
+
+.flex {
+    display: flex;
+    gap: var(--gap, 1rem);
+}
+
+.grid {
+    display: grid;
+    gap: var(--gap, 1rem);
+}
+
+.fs-300 {
+    font-size: var(--fs-300);
+}
+
+.fs-400 {
+    font-size: var(--fs-400);
+}
+
+.fs-500 {
+    font-weight: bold;
+    font-size: var(--fs-500);
+}
+
+.fs-600 {
+    font-size: var(--fs-600);
+}
+
+.fs-700 {
+    font-size: var(--fs-700);
+}
+
+.fs-800 {
+    font-size: var(--fs-800);
+}
+
+.black-fs {
+    color: hsl(var(--black-clrs));
+}
+
+.white-bg {
+    background-color: hsl(var(--white-clrs));
+}
+
+.purple-white-rad {
+    background: linear-gradient(180deg, #F1F2F7 0%, #8A9EFF 100%);
+}
+
+.center {
+    margin-inline: auto;
+}
+
+
+/* Component */
+
+.primary-header {
+    width: 100%;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    z-index: 2;
+    position: relative;
+    padding: 1rem;
+}
+
+.burger {
+    background-image: url("burger.png");
+    height: 2rem;
+    aspect-ratio: 1;
+    background-color: transparent;
+    border: none;
+    margin-left: auto;
+    padding-right: 3rem;
+    background-repeat: no-repeat;
+}
+
+.burger.active {
+    background-image: url("close.png");
+}
+
+.primary-navigation-items {
+    position: absolute;
+    flex-direction: column;
+    width: 100vw;
+    align-items: center;
+    padding-block: 3rem;
+    margin-top: 3rem;
+    --gap: 3rem;
+    left: 0;
+    transform: translateX(100%);
+    transition: transform 100ms ease;
+}
+
+.primary-navigation-items.active {
+    transform: translateX(0%);
+}
+
+.primary-navigation-items a {
+    text-decoration: none;
+}
+
+.nav-item {
+    position: relative;
+    z-index: 10;
+    border-bottom: 2px solid black;
+}
+
+.primary-content {
+    width: 100%;
+    padding-block: 2rem;
+}
+
+.primary-content-section {
+    max-width: 48rem;
+    padding-top: 10rem;
+    place-content: center;
+    grid-template-areas: "or " "p" "ah" "s" "pa" "c";
+    grid-template-columns: 1fr;
+    grid-template-rows: 300px 300px 300px 300px 1fr 400px;
+}
+
+.primary-content-section * {
+    margin-inline: auto;
+}
+
+.overal-review {
+    grid-area: or;
+}
+
+.profile {
+    grid-area: p;
+}
+
+.contact {
+    grid-area: c;
+    padding-top: 1rem;
+}
+
+.project-attended {
+    grid-area: pa;
+}
+
+.academic-history {
+    grid-area: ah;
+}
+
+.skill {
+    grid-area: s;
+}
+
+.CV-Image {
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+.CV-Image img {
+    border-radius: 50%;
+    width: 100%;
+    z-index: 100;
+}
+
+.primary-content li {
+    padding-block: 1rem;
+    list-style: circle;
+}
+
+.nav-item img {
+    display: none;
+}
+
+.project-review {
+    width: 100%;
+    position: relative;
+    height: 100%;
+    --gap: 2rem;
+}
+
+.container {
+    width: 100%;
+    margin-block: 1rem;
+}
+
+.container * {
+    display: grid;
+    width: 100%;
+    gap: 1rem;
+}
+
+.primary-footer {
+    margin-top: 5rem;
+    width: 100%;
+    height: 20rem;
+}
+
+.contact-content li {
+    list-style: none;
+}
+
+.contact-content li a {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.contact-content img {
+    height: 2rem;
+}
+
+@media (min-width: 32rem) {
+    .burger {
+        display: none;
+    }
+    .primary-navigation {
+        max-width: 48rem;
+        z-index: 3;
+    }
+    .primary-navigation-items {
+        transform: translateX(0%);
+        height: 3rem;
+        width: 100%;
+        align-items: center;
+        flex-direction: row;
+        justify-content: space-evenly;
+        position: relative;
+        margin-top: 0rem;
+        padding-block: 0rem;
+        --gap: 1rem;
+    }
+    .nav-item {
+        border: 0;
+        align-items: center;
+    }
+    .nav-item img {
+        display: block;
+        height: 0rem;
+        transition: height 100ms ease-in;
+    }
+    .nav-item:hover img {
+        height: 1.5rem;
+    }
+    .nav-item::after {
+        content: "";
+        position: absolute;
+        width: 0%;
+        background: hsl(var(--black-clrs));
+        border-radius: 1rem;
+        bottom: -10px;
+        left: 0;
+        height: 5px;
+        display: block;
+        transition: all 100ms ease-in-out;
+    }
+    .nav-item:hover::after {
+        width: 100%;
+    }
+    .primary-content-section {
+        row-gap: 2rem;
+        position: relative;
+        grid-template-areas: "or . " "p ah" "c s" "pa pa";
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 300px 300px 300px 1fr;
+    }
+    .primary-content-section * {
+        margin-inline: 0;
+    }
+    .contact-content li a {
+        list-style: none;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+    }
+    .CV-Image {
+        position: absolute;
+        top: 0;
+        right: 0;
+    }
+    .CV-Image img {
+        height: 20rem;
+        border-radius: 50%;
+        width: 100%;
+        z-index: 100;
+    }
+    .container * {
+        text-align: center;
+    }
+    .contact-content li {
+        list-style: circle;
+    }
+}
